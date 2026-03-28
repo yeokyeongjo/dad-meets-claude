@@ -95,8 +95,14 @@ window.addEventListener('scroll', function() {
 });
 </script>`;
 
-// Insert before closing </body>
-html = html.replace('</body>', minesweeperEmbed + '\n' + convEmbed + '\n' + floatingBtn + '\n</body>');
+// Insert minesweeper after screenshot, before result-banner
+html = html.replace(
+  '<div class="result-banner">',
+  minesweeperEmbed + '\n    <div class="result-banner">'
+);
+
+// Insert conversation + floating btn before closing </body>
+html = html.replace('</body>', convEmbed + '\n' + floatingBtn + '\n</body>');
 
 // Update title
 html = html.replace('<title>아빠와 클로드의 첫 만남</title>', '<title>아빠와 클로드의 첫 만남 💛</title>');
